@@ -16,5 +16,4 @@ function solution(numbers, target) {
   return answer;
 }
 
-const numbers = [1, 0, 1, 1, 1];
-console.log(solution(numbers, 3));
+console.log(solution([1, 2, 3], 2));
