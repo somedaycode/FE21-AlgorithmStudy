@@ -1,14 +1,13 @@
 function solution(numbers) {
-  const checked = new Set();
+  const answer = new Set();
   const visited = [];
-  return findPrime('', visited, checked, numbers);
+  findPrime('', visited, answer, numbers); // N! * logN
+  return answer.size;
 }
 
-function findPrime(prevSum, visited, checked, numbers) {
+function findPrime(prevSum, visited, answer, numbers) {
   if (visited.length === numbers.length)
     return 0;
-
-  let result = 0;
 
   for (let i = 0; i < numbers.length; i++) {
     if (visited.find(v => v === i) !== undefined)
@@ -16,17 +15,13 @@ function findPrime(prevSum, visited, checked, numbers) {
 
     const sum = prevSum + numbers[i];
 
-    if (!checked.has(Number(sum))) {
-      result += isPrime(Number(sum));
-      checked.add(Number(sum));
-    }
+    if (!answer.has(Number(sum)) && isPrime(Number(sum))) // logN
+      answer.add(Number(sum));
 
     visited.push(i);
-    result += findPrime(sum, visited, checked, numbers);
+    findPrime(sum, visited, answer, numbers);
     visited.pop();
   }
-  
-  return result;
 }
 
 function isPrime(number) {
