@@ -1,6 +1,5 @@
 function solution(numbers, target) {
   let answer = 0;
-
   function dfs(numbers, target, idx = 0, sum = 0) {
     if (idx === numbers.length) {
       if (sum === target) answer++;
@@ -19,4 +18,4 @@ function solution(numbers, target) {
 const numbers = [1, 1, 1, 1, 1];
 const target = 3;
 
-solution(numbers, target);
+solution(numbers, target)
