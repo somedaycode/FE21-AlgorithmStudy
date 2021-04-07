@@ -7,7 +7,7 @@ function solution(numbers) {
 
 function findPrime(prevSum, visited, answer, numbers) {
   if (visited.length === numbers.length)
-    return 0;
+    return;
 
   for (let i = 0; i < numbers.length; i++) {
     if (visited.find(v => v === i) !== undefined)
