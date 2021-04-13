@@ -17,6 +17,7 @@ var findMin = function (nums) {
   return nums[left];
 };
 
+
 var findMin_Kyle = function (nums) {
   for (let i = 0; i < nums.length; i++) {
     if (nums[i] > nums[i + 1]) return nums[i + 1];
