@@ -17,5 +17,13 @@ var findMin = function (nums) {
   return nums[left];
 };
 
+
+var findMin_Kyle = function (nums) {
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] > nums[i + 1]) return nums[i + 1];
+  }
+  return nums[0];
+};
+
 const nums = [3, 4, 5, 1, 2];
-console.log(findMin(nums));
+console.log(findMin_Kyle(nums));
