@@ -24,7 +24,6 @@ var maxSubArray = function (nums) {
     cur = Math.max(n, cur + n);
     max = Math.max(max, cur);
   }
-
   return max;
 };
 
