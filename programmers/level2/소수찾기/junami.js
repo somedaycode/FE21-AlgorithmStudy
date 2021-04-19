@@ -45,3 +45,4 @@ function solution(numbers) {
 }
 
 console.log(solution("0156"));
+
