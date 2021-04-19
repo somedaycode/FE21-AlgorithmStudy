@@ -12,6 +12,7 @@ function solution(numbers) {
     }
     return true;
   };
+
   const getPermutation = (numbers, number) => {
     let result = [];
     if (number === 1) return numbers.map((v) => [v].join(""));
@@ -25,16 +26,22 @@ function solution(numbers) {
     });
     return result;
   };
+
+  let answer = new Set();
   for (let i = 1; i < numbers.length + 1; i++) {
-    console.log(new Set([getPermutation(numbers, i)]));
-    new Set([...getPermutation(numbers, i)]).forEach((el) => {
-      if (isPrimeNumber(Number(el)) === true) {
-        console.log(el, isPrimeNumber(Number(el)));
-        trueArr.push(el);
-      }
-    });
+    answer = new Set([
+      ...answer,
+      ...getPermutation(numbers, i).map((el) => Number(el)),
+    ]);
   }
+
+  answer.forEach((el) => {
+    if (isPrimeNumber(Number(el)) === true) {
+      //console.log(Number(el), isPrimeNumber(Number(el)));
+      trueArr.push(el);
+    }
+  });
   return trueArr.length;
 }
 
-console.log(solution("17"));
+console.log(solution("0156"));
