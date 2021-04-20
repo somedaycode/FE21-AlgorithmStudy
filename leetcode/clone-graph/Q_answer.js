@@ -1,12 +1,12 @@
 // leetcode discuss 확인하였음
 var cloneGraph = function (node) {
-  function graph(node, visisted = {}) {
+  function graph(node, visited = {}) {
     if (node === null) return;
-    if (visisted[node.val]) return visisted[node.val];
+    if (visited[node.val]) return visited[node.val];
     const newGraph = new Node(node.val);
-    visisted[node.val] = newGraph;
+    visited[node.val] = newGraph;
     for (let i = 0; i < node.neighbors.length; i++) {
-      newGraph.neighbors.push(graph(node.neighbors[i], visisted));
+      newGraph.neighbors.push(graph(node.neighbors[i], visited));
     }
     return newGraph;
   }
