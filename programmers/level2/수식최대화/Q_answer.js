@@ -9,8 +9,6 @@ function solution(expression) {
     }
   }
 
-  console.log(expressionArr);
-
   const priority = [
     ['+', '-', '*'],
     ['+', '*', '-'],
@@ -57,5 +55,3 @@ function tokenize(exp) {
 function removeSpace(arr) {
   return arr.filter((n) => n !== '');
 }
-
-solution('1+1*1');
