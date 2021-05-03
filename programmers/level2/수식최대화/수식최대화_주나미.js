@@ -1,25 +1,6 @@
 function solution(expression) {
-	const divide = () => {
-		let number = '';
-		let arr_s = [];
-		let arr_n = [];
-		const signal = ['*', '-', '+'];
-		const result = expression.split('');
-		for (let i = 0; i < result.length; i++) {
-			if (!signal.includes(result[i])) number += result[i];
-			else {
-				arr_s.push(result[i]);
-				if (number.length > 0) {
-					arr_n.push(number);
-					number = '';
-				}
-			}
-			if (i === result.length - 1) arr_n.push(number);
-		}
-		return [arr_s, arr_n];
-	};
-
-	const [arr_s, arr_n] = divide(expression);
+	const arr_n = expression.split(/[^0-9]/).map((el) => Number(el));
+	const arr_s = expression.split(/[0-9]/).filter((el) => el); //값이 있는 것으로 filtering
 
 	const signalCase = [
 		['+', '-', '*'],
