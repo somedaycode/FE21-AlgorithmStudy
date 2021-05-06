@@ -1,18 +1,11 @@
 function solution(s) {
   var answer = 0;
+  let arr = s.split("");
   for (let i = 0; i < s.length; i++) {
-    const arr = rotate(s, i);
     if (check(arr)) answer++;
-  }
-  return answer;
-}
-
-function rotate(str, n) {
-  let arr = str.split("");
-  for (let i = 0; i < n; i++) {
     arr.push(arr.shift());
   }
-  return arr;
+  return answer;
 }
 
 function check(arr) {
