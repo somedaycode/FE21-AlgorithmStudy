@@ -15,3 +15,20 @@ var wordBreak = function (s, wordDict) {
   }
   return dp[s.length];
 };
+
+// Time Limit Exceeded
+var wordBreak = function (s, wordDict) {
+  const set = new Set(wordDict);
+  return wordBreakRecur(s, set, 0);
+};
+
+function wordBreakRecur(s, set, start) {
+  if (start === s.length) return true;
+
+  for (let end = start + 1; end <= s.length; end++) {
+    if (set.has(s.substring(start, end)) && wordBreakRecur(s, set, end)) {
+      return true;
+    }
+  }
+  return false;
+}
