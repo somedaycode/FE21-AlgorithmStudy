@@ -1,4 +1,5 @@
 var isAnagram = function (s, t) {
+  if (s.length !== t.length) return false;
   let left = 0;
   let right = 0;
   const tSet = {};
@@ -14,12 +15,10 @@ var isAnagram = function (s, t) {
       right++;
     } else return false;
   }
-  return check(tSet);
+  return true;
 };
 
-function check(tSet) {
-  for (const key in tSet) {
-    if (tSet[key] > 0) return false;
-  }
+var isAnagram = function (s, t) {
+  if (s.split('').sort().join('') !== t.split('').sort().join('')) return false;
   return true;
-}
+};
