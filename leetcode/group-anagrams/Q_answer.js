@@ -9,6 +9,9 @@ var groupAnagrams = function (strs) {
       Qmap.set(mapKey, arr);
     } else Qmap.set(mapKey, [str]);
   }
+
+  // Array.from(Qmap); 으로도 가능
+
   const result = [];
   Qmap.forEach((value) => result.push(value));
   return result;
