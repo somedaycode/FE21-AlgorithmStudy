@@ -1,3 +1,21 @@
+// 개선 답안
+var deepestLeavesSum = function (root) {
+  const numberArr = [];
+  getNum(root, 0, numberArr);
+
+  return numberArr[numberArr.length - 1];
+};
+
+function getNum(root, num, numberArr) {
+  if (root === null) return;
+  numberArr[num] = (numberArr[num] || 0) + root.val;
+
+  const currentLine = num + 1;
+  getNum(root.left, currentLine, numberArr);
+  getNum(root.right, currentLine, numberArr);
+}
+
+// 처음 답안
 var deepestLeavesSum = function (root) {
   const lineMax = getLineMax(root);
   const numberSet = new Set();
